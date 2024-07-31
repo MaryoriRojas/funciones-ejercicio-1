@@ -1,8 +1,8 @@
 <?php
 
-function esPalindromo($palabra)
+function esPalindromo($frase)
 {
-    $cambiarAMinusculas = strtolower($palabra);
+    $cambiarAMinusculas = strtolower($frase);
 
     $quitarEspacios = preg_replace('/[^a-z0-9]/', '', $cambiarAMinusculas);
 
@@ -13,6 +13,6 @@ function esPalindromo($palabra)
     }
 }
 
-$frase = readline("Ingrese una frase que sea palíndromo: ");
+$frase = readline("Ingrese una frase o palabra que sea palíndromo: ");
 $resultado = esPalindromo($frase);
 echo $resultado . "\n";
