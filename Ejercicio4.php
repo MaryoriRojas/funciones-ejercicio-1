@@ -1,19 +1,26 @@
 <?php
 
-function sumarDigitos($numero) {
+function sumaDigitos($numero) {
     $numero = abs($numero);
     $numeroCadena = (string)$numero;
     $suma = 0;
-
+    $operacion = '';
+    
     for ($i = 0; $i < strlen($numeroCadena); $i++) {
-        $suma += $numeroCadena[$i];
+        $digito = $numeroCadena[$i];
+        $suma += $digito;
+        
+        if ($i > 0) {
+            $operacion .= ' + ';
+        }
+        $operacion .= $digito;
     }
-    return $suma;
+    return ['suma' => $suma, 'operacion' => $operacion];
 }
 
 echo "Ingrese un número entero: ";
 $numero = (int)readline();
+$resultado = sumaDigitos($numero);
 
-$suma = sumarDigitos($numero);
-
-echo "La suma de los dígitos de $numero es $suma.\n";
+echo "La operación es: " . $resultado['operacion'] . "\n";
+echo "La suma de los dígitos de $numero es " . $resultado['suma'] . ".\n";
