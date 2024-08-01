@@ -1,18 +1,20 @@
 <?php
 
 function FierroAlv() {
+    $resultados = [];
+    
     for ($i = 1; $i <= 100; $i++) {
         if ($i % 3 == 0 && $i % 5 == 0) {
-            echo "PesoPluma\n";
+            $resultados[] = "PesoPluma";
         } elseif ($i % 3 == 0) {
-            echo "Peso";
+            $resultados[] = "Peso";
         } elseif ($i % 5 == 0) {
-            echo "Pluma";
+            $resultados[] = "Pluma";
         } else {
-            echo "$i\n";
+            $resultados[] = $i;
         }
     }
+    echo implode(", ", $resultados) . "\n";
 }
 
-// Ejecutar la función
 FierroAlv();
